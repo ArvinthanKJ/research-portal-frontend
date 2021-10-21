@@ -22,6 +22,7 @@ import "react-toastify/dist/ReactToastify.css";
 import ProjectResults from "./components/ProjectResults/ProjectResults";
 import Profile from "./components/Profile/Profile";
 import Resume from "./components/Resume/Resume.jsx";
+import Highlights from "./components/Highlights";
 
 const Container = styled.div`
   overflow-y: scroll;
@@ -63,7 +64,7 @@ const App = () => {
   };
 
   const NavigationBar = () => {
-    const isAuthenticated = (localStorage.getItem("email") != null);
+    const isAuthenticated = localStorage.getItem("email") != null;
     return (
       <div className="flex">
         <Router>
@@ -89,14 +90,15 @@ const App = () => {
                   <Route exact path="/signup">
                     <Signup />
                   </Route>
-                  {isAuthenticated?
+                  {isAuthenticated ? (
                     <Route exact path="/">
                       <Profile />
-                    </Route>:
+                    </Route>
+                  ) : (
                     <Route exact path="/">
                       <Home />
                     </Route>
-                  }
+                  )}
                   <Route exact path="/project/:id">
                     <Project />
                   </Route>
@@ -121,17 +123,20 @@ const App = () => {
                   <Route exact path="/labs">
                     <Lab />
                   </Route>
+                  <Route exact path="/highlights">
+                    <Highlights />
+                  </Route>
                   <Route exact path="/results/:filterBy/:value">
-                    <ProjectResults/>
+                    <ProjectResults />
                   </Route>
                   <Route exact path="/home">
-                    <Home/>
+                    <Home />
                   </Route>
                   <Route exact path="/profile">
-                    <Profile/>
+                    <Profile />
                   </Route>
                   <Route exact path="/resume">
-                    <Resume/>
+                    <Resume />
                   </Route>
                   <Route exact path="/centers-of-excellence">
                     <Center />
