@@ -1,0 +1,12 @@
+.publication-head {
+    padding-top: 50px;
+}
+.publication-box {
+    margin-bottom: 50px;
+}
+.inn-div:hover {
+    background-color: rgb(216, 216, 216);
+}
+.pub-div:hover {
+    background-color: rgb(216, 216, 216);
+}
